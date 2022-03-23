@@ -11,7 +11,7 @@
 */
 
 ordena_insercion([], []).
-ordena_insercion([], ListaR):- ordena_insercion(Resto, R), insertar_ordenado(Cab, R, ListaR).
+ordena_insercion([Cab | Resto], ListaR):- ordena_insercion(Resto, R), insertar_ordenado(Cab, R, ListaR).
 
 
 
