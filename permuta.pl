@@ -8,7 +8,8 @@
 permuta([], []).
 permuta([Cab | Resto], R2):- permuta(Resto, R), insertar_todas_pos(Cab, R, R2).
 
-
+%permuta([], []).
+%permuta(L, [E|RP]):-  selecciona_uno(L, E, R),  permuta(R, RP).
 
 /*
 	selecciona_uno(+Lista, -Elem, -Resto)
