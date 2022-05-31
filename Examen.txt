@@ -1,0 +1,27 @@
++ Listas
+	masveces
+	comprime
+	primos_xy
+	busquedas pueden caer alguna de las 3 que hemos dado -> quicksort ord_ins
+	permutaciones
+	
++ Arboles binarios
+	anchura
+	balancedo
+	crea_ab
+
++Arboles genericos
+	lista_hojas
+	crea_ag
+	bin2gen
+	cuenta_internos
+	
++ Grafos
+	ciclos
+	camino
+	
++ Problemas de estado
+	Garrafas
+	Canibales
+
++ Sudoku
