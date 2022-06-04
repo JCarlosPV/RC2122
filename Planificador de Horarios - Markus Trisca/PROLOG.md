@@ -2,20 +2,20 @@
 
 # EXPLICACION PLANIFICADOR DE HORARIOS
 
-######                                                 Markus Triska
+###### Markus Triska
 
 
 ## Autores
 ----------------------------
-*David Prieto Araujo*
+* David Prieto Araujo
 
-*Salvador Romero Boukhoubza*
+* Salvador Romero Boukhoubza
 
-*Juan Diego Díaz Domínguez*
+* Juan Diego Díaz Domínguez
 
-*Abel Pichardo Estévez*
+* Abel Pichardo Estévez
 
-*José Carlos Palma Vallejo*
+* José Carlos Palma Vallejo*
 
 > Librerías que se van a usar.
 
@@ -33,7 +33,7 @@
 
 **:- use\_module(library(pio)).**
 
-[comment]: <> “dynamic” avisa al intérprete de que los predicados son dinámicos.
+[comment: <> “dynamic” avisa al intérprete de que los predicados son dinámicos.]
 
 **:- dynamic(class\_subject\_teacher\_times/4).**
 
