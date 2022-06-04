@@ -84,7 +84,7 @@ requirements(Rs) :-
 
 [comment]: <>las alternativas duplicadas.
 
-```setof(req(Class,Subject,Teacher,Number), Goal, Rs0)```,
+```setof(req(Class,Subject,Teacher,Number), Goal, Rs0)```
 
 
 
@@ -107,9 +107,9 @@ requirements(Rs) :-
 [comment]: <>Las clases serán un conjunto sin elementos repetidos de C, donde conseguimos 
 [comment]: <>que se cumpla la meta (esta es el segundo parámetro) y se guarda en la variable Classes).
 
-```classes(Classes) :-
-
-setof(C, S^N^T^class\_subject\_teacher\_times(C,S,T,N), Classes).```
+```classes(Classes) :- 
+setof(C, S^N^T^class\_subject\_teacher\_times(C,S,T,N), Classes).
+```
 
 [comment]: <>Los profesores serán un conjunto sin elementos repetidos de T, donde conseguimos que 
 
@@ -152,14 +152,6 @@ pairs\_values(Ps, Vs0),
 [comment]: <>Concatena las listas de Vs0 en Vs.
 
 append(Vs0, Vs).```
-
-
-
-
-
-
-
-
 
 
 ```requirements\_variables(Rs, Vars) :-
