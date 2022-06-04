@@ -2,7 +2,7 @@
 
 # EXPLICACION PLANIFICADOR DE HORARIOS
 
-###### Markus Triska
+######                                                 Markus Triska
 
 
 ## Autores
