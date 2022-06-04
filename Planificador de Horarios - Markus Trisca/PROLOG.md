@@ -1,11 +1,11 @@
 ﻿
 
-EXPLICACION PLANIFICADOR DE HORARIOS
+# EXPLICACION PLANIFICADOR DE HORARIOS
 
-Markus Triska
+###### Markus Triska
 
 
-Autores
+## Autores
 ----------------------------
 *David Prieto Araujo
 
