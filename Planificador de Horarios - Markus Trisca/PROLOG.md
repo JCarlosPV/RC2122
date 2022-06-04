@@ -117,7 +117,8 @@ setof(C, S^N^T^class\_subject\_teacher\_times(C,S,T,N), Classes).
 
 ```teachers(Teachers) :-
 
-setof(T, C^S^N^class\_subject\_teacher\_times(C,S,T,N), Teachers).```
+setof(T, C^S^N^class\_subject\_teacher\_times(C,S,T,N), Teachers).
+```
 
 ```rooms(Rooms) :-
 
@@ -137,7 +138,8 @@ findall(Room, room\_alloc(Room,\_C,\_S,\_Slot), Rooms0),
 
 [comment]: <>Unifica si Rooms contiene Rooms0 ordenada y sin duplicados.
 
-sort(Rooms0, Rooms).```
+sort(Rooms0, Rooms).
+```
 
 
 
