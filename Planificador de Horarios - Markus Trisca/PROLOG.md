@@ -7,17 +7,17 @@
 
 ## Autores
 ----------------------------
-*David Prieto Araujo
+*David Prieto Araujo*
 
-*Salvador Romero Boukhoubza
+*Salvador Romero Boukhoubza*
 
-*Juan Diego Díaz Domínguez
+*Juan Diego Díaz Domínguez*
 
-*Abel Pichardo Estévez
+*Abel Pichardo Estévez*
 
-*José Carlos Palma Vallejo
+*José Carlos Palma Vallejo*
 
-[comment]: <> Librerías que se van a usar.
+> Librerías que se van a usar.
 
 **:- use\_module(library(clpz)).**
 
