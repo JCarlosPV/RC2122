@@ -17,7 +17,7 @@
 
 * José Carlos Palma Vallejo*
 
-> Librerías que se van a usar.
+[comment]: <> Librerías que se van a usar.
 
 **:- use\_module(library(clpz)).**
 
@@ -33,7 +33,7 @@
 
 **:- use\_module(library(pio)).**
 
-[comment: <> “dynamic” avisa al intérprete de que los predicados son dinámicos.]
+[comment]: <> “dynamic” avisa al intérprete de que los predicados son dinámicos.
 
 **:- dynamic(class\_subject\_teacher\_times/4).**
 
@@ -457,7 +457,7 @@ N #= N0 + 1.
 ```
 
 [comment]: <>Función para mostrar las clases
-
+```
 print\_classes(Rs) :-
 
 [comment]: <>Obtenemos las clases a mostrar
@@ -475,12 +475,14 @@ phrase\_to\_stream(format\_classes(Cs, Rs), user\_output).
 [comment]: <>Definición del formato a representar
 
 format\_classes([], \_) --> [].
+```
 
+```
 format\_classes([Class|Classes], Rs) →
 
 [comment]: <>Se obtienen los días que se va a dar la clase
 
-`	`{ class\_days(Rs, Class, Days0),
+{ class\_days(Rs, Class, Days0),
 
 [comment]: <>Se realiza la traspuesta de la lista Days0
 
@@ -501,9 +503,11 @@ align\_rows(Days),
 [comment]: <>Realiza la función para las demás clases de la Lista
 
 format\_classes(Classes, Rs).
+```
 
 [comment]: <>Funcion que unifica cuando las filas están alineadas
 
+```
 align\_rows([]) --> "\n\n\n".
 
 align\_rows([R|Rs]) -->
@@ -521,24 +525,28 @@ align\_row([R|Rs]) -->
 `        `align\_(R),
 
 `        `align\_row(Rs).
-
-
+```
+```
 align\_(free)               --> align\_(verbatim('')).
-
+```
+```
 align\_(class\_subject(C,S)) --> align\_(verbatim(C/S)).
-
+```
+```
 align\_(subject(S))         --> align\_(verbatim(S)).
-
+```
+```
 align\_(verbatim(Element))  --> format\_("~t~w~t~8+", [Element]).
+```
 
 [comment]: <>Muestra los nombres de todos los profesores.
-
+```
 print\_teachers(Rs) :-
 
 `        `teachers(Ts),
 
 `        `phrase\_to\_stream(format\_teachers(Ts, Rs), user\_output).
-
+```
 
 
 [comment]: <>Define el formato de la tabla de profesores mostrando
@@ -546,9 +554,10 @@ print\_teachers(Rs) :-
 [comment]: <>el nombre del profesor, los días que imparte y los huecos
 
 [comment]: <>en los días que imparte
-
+```
 format\_teachers([], \_) --> [].
-
+```
+```
 format\_teachers([T|Ts], Rs) -->
 
 `        `{ teacher\_days(Rs, T, Days0),
@@ -562,11 +571,11 @@ format\_teachers([T|Ts], Rs) -->
 `        `align\_rows(Days),
 
 `        `format\_teachers(Ts, Rs).
-
+```
 [comment]: <>Define la cabecera de los días de la semana con sus nombres 
 
 [comment]: <>y la alinea.
-
+```
 weekdays\_header -->
 
 `        `{ maplist(with\_verbatim,
@@ -578,9 +587,10 @@ weekdays\_header -->
 `        `align\_row(Vs),
 
 `        `format\_("~n~`=t~40|~n", []).
+```
 
 [comment]: <>Unifica cuando T unifica con el literal T, para así, poder mostrarlo.
-
+```
 with\_verbatim(T, verbatim(T)).
-
+```
 
