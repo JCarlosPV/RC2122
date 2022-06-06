@@ -426,7 +426,7 @@ foldl(v(Sub), Vs, 0, \_).
 ```
 v(Rs, V, N0, N) :-
 
-(   member(req(\_,Subject,\_,\_)-Times, Rs),
+(member(req(\_,Subject,\_,\_)-Times, Rs),
 
 member(N0, Times) -> V = subject(Subject);
            V = free),
@@ -448,7 +448,7 @@ foldl(v\_teacher(Sub), Vs, 0, \_).
 ```
 v\_teacher(Rs, V, N0, N) :-
 
-(   member(req(C,Subj,\_,\_)-Times, Rs),
+(member(req(C,Subj,\_,\_)-Times, Rs),
 
 member(N0, Times) -> V = class\_subject(C, Subj);
    V = free),
@@ -512,40 +512,41 @@ align\_rows([]) --> "\n\n\n".
 
 align\_rows([R|Rs]) -->
 
-`        `align\_row(R),
+align\_row(R),
 
-`        `"\n",
+"\n",
 
-`        `align\_rows(Rs).
+align\_rows(Rs).
 
 align\_row([]) --> [].
-
+```
+```
 align\_row([R|Rs]) -->
 
-`        `align\_(R),
+align\_(R),
 
-`        `align\_row(Rs).
+align\_row(Rs).
 ```
 ```
-align\_(free)               --> align\_(verbatim('')).
+align\_(free) --> align\_(verbatim('')).
 ```
 ```
 align\_(class\_subject(C,S)) --> align\_(verbatim(C/S)).
 ```
 ```
-align\_(subject(S))         --> align\_(verbatim(S)).
+align\_(subject(S)) --> align\_(verbatim(S)).
 ```
 ```
-align\_(verbatim(Element))  --> format\_("~t~w~t~8+", [Element]).
+align\_(verbatim(Element)) --> format\_("~t~w~t~8+", [Element]).
 ```
 
 [comment]: <>Muestra los nombres de todos los profesores.
 ```
 print\_teachers(Rs) :-
 
-`        `teachers(Ts),
+teachers(Ts),
 
-`        `phrase\_to\_stream(format\_teachers(Ts, Rs), user\_output).
+phrase\_to\_stream(format\_teachers(Ts, Rs), user\_output).
 ```
 
 
@@ -560,17 +561,15 @@ format\_teachers([], \_) --> [].
 ```
 format\_teachers([T|Ts], Rs) -->
 
-`        `{ teacher\_days(Rs, T, Days0),
+{teacher\_days(Rs, T, Days0), transpose(Days0, Days) },
 
-`          `transpose(Days0, Days) },
+format\_("Teacher: ~w~2n", [T]),
 
-`        `format\_("Teacher: ~w~2n", [T]),
+weekdays\_header,
 
-`        `weekdays\_header,
+align\_rows(Days),
 
-`        `align\_rows(Days),
-
-`        `format\_teachers(Ts, Rs).
+format\_teachers(Ts, Rs).
 ```
 [comment]: <>Define la cabecera de los días de la semana con sus nombres 
 
@@ -578,17 +577,13 @@ format\_teachers([T|Ts], Rs) -->
 ```
 weekdays\_header -->
 
-`        `{ maplist(with\_verbatim,
+{ maplist(with\_verbatim, ['Mon','Tue','Wed','Thu','Fri'], Vs) },
 
-`                  `['Mon','Tue','Wed','Thu','Fri'],
+align\_row(Vs),
 
-`                  `Vs) },
+format\_("~n~`=t~40|~n", []).
 
-`        `align\_row(Vs),
-
-`        `format\_("~n~`=t~40|~n", []).
 ```
-
 [comment]: <>Unifica cuando T unifica con el literal T, para así, poder mostrarlo.
 ```
 with\_verbatim(T, verbatim(T)).
