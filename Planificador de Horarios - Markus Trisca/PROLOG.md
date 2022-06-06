@@ -115,12 +115,13 @@ setof(C, S^N^T^class\_subject\_teacher\_times(C,S,T,N), Classes).
 
 [comment]: <>se cumpla la meta (esta es el segundo parámetro) y se guarda en la variable Teachers).
 
-```teachers(Teachers) :-
-
+```
+teachers(Teachers) :-
 setof(T, C^S^N^class\_subject\_teacher\_times(C,S,T,N), Teachers).
 ```
 
-```rooms(Rooms) :-
+```
+rooms(Rooms) :-
 
 [comment]: <>Con findall se crea una lista con todas las instancias de Room
 
@@ -143,7 +144,8 @@ sort(Rooms0, Rooms).
 
 
 
-```pairs\_slots(Ps, Vs) :-
+```
+pairs\_slots(Ps, Vs) :-
 
 [comment]: <>Elimina las claves de Ps,  obteniendo los valores y guardandolos
 
@@ -153,10 +155,12 @@ pairs\_values(Ps, Vs0),
 
 [comment]: <>Concatena las listas de Vs0 en Vs.
 
-append(Vs0, Vs).```
+append(Vs0, Vs).
+```
 
 
-```requirements\_variables(Rs, Vars) :-
+```
+requirements\_variables(Rs, Vars) :-
 
 [comment]: <>Rs guarda los requisitos.
 
@@ -202,9 +206,11 @@ maplist(constrain\_class(Rs), Classes),
 
 [comment]: <>aplicando las restricciones de las aulas con las asignaturas 
 
-maplist(constrain\_room(Rs), Rooms).```
+maplist(constrain\_room(Rs), Rooms).
+```
 
-```slot\_quotient(S, Q) :-
+```
+slot\_quotient(S, Q) :-
 
 [comment]: <>SPD son los huecos que hay para poder dar clases por día.
 
@@ -226,9 +232,11 @@ zcompare(R, W, Pos0) },
 
 without\_at\_pos0(R, E, [W|Ws], Ws1),
 
-without\_(Ws1, Pos, Es).```
+without\_(Ws1, Pos, Es).
+```
 
-```slots\_couplings(Slots, F-S) :-
+```
+slots\_couplings(Slots, F-S) :-
 
 [comment]: <>Devuelve true si S1 es el índice de F en Slots.
 
@@ -242,9 +250,11 @@ nth0(F, Slots, S1),
 
 nth0(S, Slots, S2),
 
-S2 #= S1 + 1.```
+S2 #= S1 + 1.
+```
 
-```all\_diff\_from(Vs, F) :- maplist(#\=(F), Vs).
+```
+all\_diff\_from(Vs, F) :- maplist(#\=(F), Vs).
 
 [comment]: <>Función que define las restricciones de una asignatura
 
@@ -270,9 +280,11 @@ sort(Seconds0, Seconds),
 
 list\_without\_nths(Qs0, Seconds, Qs),
 
-strictly\_ascending(Qs).```
+strictly\_ascending(Qs).
+```
 
-```all\_diff\_from(Vs, F) :- maplist(#\=(F), Vs).
+```
+all\_diff\_from(Vs, F) :- maplist(#\=(F), Vs).
 
 [comment]: <>Define las restricciones que debe cumplir una 
 
@@ -292,11 +304,13 @@ all\_different(Vs),
 
 findall(S, class\_freeslot(Class,S), Frees),
 
-maplist(all\_diff\_from(Vs), Frees).```
+maplist(all\_diff\_from(Vs), Frees).
+```
 
 [comment]: <>Define las restricciones que debe cumplir un profesor
 
-```constrain\_teacher(Rs, Teacher) :-
+```
+constrain\_teacher(Rs, Teacher) :-
 
 tfilter(teacher\_req(Teacher), Rs, Sub),
 
@@ -308,55 +322,61 @@ findall(F, teacher\_freeday(Teacher, F), Fs),
 
 maplist(slot\_quotient, Vs, Qs),
 
-maplist(all\_diff\_from(Qs), Fs).```
+maplist(all\_diff\_from(Qs), Fs).
+```
 
 [comment]: <>Comprueba que un profesor no imparte una asignatura a la misma hora
 
 [comment]: <>en una misma aula que otro profesor.
 
-```sameroom\_var(Reqs, r(Class,Subject,Lesson), Var) :-
+```
+sameroom\_var(Reqs, r(Class,Subject,Lesson), Var) :-
 
 [comment]: <>Unifica cuando el requisito que le pasamos es miembro de la lista Reqs.
 
 memberchk(req(Class,Subject,\_Teacher,\_Num)-Slots, Reqs),
 
-nth0(Lesson, Slots, Var).```
-
-
+nth0(Lesson, Slots, Var).
+```
 
 [comment]: <>Define las distintas restricciones para un aula.
 
-```constrain\_room(Reqs, Room) :-
+```
+constrain\_room(Reqs, Room) :-
 
 findall(r(Class,Subj,Less), room\_alloc(Room,Class,Subj,Less), RReqs),
 
 maplist(sameroom\_var(Reqs), RReqs, Roomvars),
 
-all\_different(Roomvars).```
+all\_different(Roomvars).
+```
 
 [comment]: <>Unifica cuando los elementos de Ls están ordenados de forma
 
 [comment]: <>ascendente
 
-```strictly\_ascending(Ls) :- chain(#<, Ls).```
+```
+strictly\_ascending(Ls) :- chain(#<, Ls).
+```
 
 [comment]: <>Define la forma de definir un requisito para una clase.
 
-```class\_req(C0, req(C1,\_S,\_T,\_N)-\_, T) :- =(C0, C1, T).```
+```
+class\_req(C0, req(C1,\_S,\_T,\_N)-\_, T) :- =(C0, C1, T).
+```
 
 [comment]: <>Define la forma de definir un requisito de un profesor.
 
-```teacher\_req(T0, req(\_C,\_S,T1,\_N)-\_, T) :- =(T0,T1,T).```
-
-
-
-
+```
+teacher\_req(T0, req(\_C,\_S,T1,\_N)-\_, T) :- =(T0,T1,T).
+```
 
 [comment]: <>Es cierto si Vs unifica con una lista 
 
 [comment]: <>que contiene los distintos días que hay que impartir una asignatura.
 
-```days\_variables(Days, Vs) :-
+```
+days\_variables(Days, Vs) :-
 
 [comment]: <>SPW unifica con los huecos por semana que se imparte la asignatura.
 
@@ -388,53 +408,53 @@ maplist(same\_length(Day), Days),
 
 [comment]: <>En Vs guardamos como quedan los días.
 
-append(Days, Vs).```
+append(Days, Vs).
+```
 
 [comment]: <>Obtenemos los días en los que se puede dar las clases.
 
-```class\_days(Rs, Class, Days) :-
+```
+class\_days(Rs, Class, Days) :-
 
 days\_variables(Days, Vs),
 
 tfilter(class\_req(Class), Rs, Sub), 
 
-foldl(v(Sub), Vs, 0, \_).```
+foldl(v(Sub), Vs, 0, \_).
+```
 
-```v(Rs, V, N0, N) :-
+```
+v(Rs, V, N0, N) :-
 
 (   member(req(\_,Subject,\_,\_)-Times, Rs),
 
 member(N0, Times) -> V = subject(Subject);
            V = free),
-N #= N0 + 1.```
+N #= N0 + 1.
+```
 
 [comment]: <>Unifica cuando Days contiene una lista con los días que un profesor imparte clases
 
-```teacher\_days(Rs, Teacher, Days) :-
+```
+teacher\_days(Rs, Teacher, Days) :-
 
 days\_variables(Days, Vs),
 
 tfilter(teacher\_req(Teacher), Rs, Sub),
 
-foldl(v\_teacher(Sub), Vs, 0, \_).```
+foldl(v\_teacher(Sub), Vs, 0, \_).
+```
 
-```v\_teacher(Rs, V, N0, N) :-
+```
+v\_teacher(Rs, V, N0, N) :-
 
 (   member(req(C,Subj,\_,\_)-Times, Rs),
 
 member(N0, Times) -> V = class\_subject(C, Subj);
    V = free),
 
-N #= N0 + 1.```
-
-
-
-
-
-
-
-
-
+N #= N0 + 1.
+```
 
 [comment]: <>Función para mostrar las clases
 
