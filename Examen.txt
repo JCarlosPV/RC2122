@@ -1,9 +1,11 @@
 + Listas
 	masveces ✅
 	comprime ✅
-	primos_xy
-	busquedas pueden caer alguna de las 3 que hemos dado -> quicksort ord_ins
-	permutaciones
+	primos_xy ✅
+	ordena_quick ✅
+	ordena_burbuja ✅
+	ord_ins ✅
+	permutaciones ✅
 	
 + Arboles binarios
 	anchura
