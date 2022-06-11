@@ -20,8 +20,8 @@
 	cuenta_internos - No está
 	
 + Grafos
-	ciclos 
-	camino	
+	ciclos ✅
+	camino ✅
 	
 + Problemas de estado
 	Garrafas ✅
