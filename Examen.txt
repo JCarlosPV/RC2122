@@ -25,6 +25,6 @@
 	
 + Problemas de estado
 	Garrafas ✅
-	Canibales
+	Canibales ✅
 
 + Sudoku ✅
