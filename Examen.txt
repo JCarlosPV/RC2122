@@ -20,7 +20,7 @@
 	cuenta_internos - No está
 	
 + Grafos
-	ciclos ✅
+	ciclos 
 	camino ✅
 	
 + Problemas de estado
