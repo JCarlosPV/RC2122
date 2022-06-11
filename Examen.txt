@@ -27,4 +27,4 @@
 	Garrafas ✅
 	Canibales
 
-+ Sudoku
++ Sudoku ✅
