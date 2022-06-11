@@ -8,22 +8,23 @@
 	permutaciones ✅
 	
 + Arboles binarios
-	anchura
-	balancedo
-	crea_ab
+	balancedo ✅
+	crea_ab ✅
+	lista_hojas_abb ✅
 
 +Arboles genericos
-	lista_hojas
-	crea_ag
-	bin2gen
-	cuenta_internos
+	anchura ✅
+	lista_hojas_ag ✅
+	crea_ag ✅
+	bin2gen ✅
+	cuenta_internos - No está
 	
 + Grafos
-	ciclos
-	camino
+	ciclos 
+	camino	
 	
 + Problemas de estado
-	Garrafas
+	Garrafas ✅
 	Canibales
 
 + Sudoku
